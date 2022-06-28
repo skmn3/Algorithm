@@ -8,8 +8,7 @@ int main(void)
     
     scanf("%[^\n]", arr);
     len = strlen(arr);
-    
-    /* 공백 문자 하나만 입력 시 0으로 출력 후 종료 */
+
     if(len == 1)
     {
     	if(arr[0] == ' ')
@@ -18,8 +17,7 @@ int main(void)
     		return 0;
         }
     }
-    
-    /* 공백 문자 갯수 인식 */
+
     for(i = 1; i < len-1; i++)
     {
         if(arr[i] == ' ')
