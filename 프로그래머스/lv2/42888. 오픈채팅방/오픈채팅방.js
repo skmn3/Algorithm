@@ -1,25 +1,20 @@
-
 function solution(record) {
-    const userInfo = {};
-    const action = [];
-    const stateMapping = {
-        'Enter': '님이 들어왔습니다.',
-        'Leave': '님이 나갔습니다.'
+    const answers = [];
+    const userList = {};
+
+    const joinMsg = {
+        Enter: "들어왔습니다",
+        Leave: "나갔습니다"
+    };
+
+    for (let records of record) {
+        const [ answer, uid, nickname ] = records.split(' ');
+        if (nickname) {
+            userList[uid] = nickname;
+        }
+        if (answer !== "Change") {
+            answers.push([answer, uid]);
+        }
     }
-
-    record.forEach((v) => {
-        const [state, id, nick] = v.split(' ');
-
-        if(state !== "Change") {
-            action.push([state, id]);
-        }
-
-        if(nick) {
-            userInfo[id] = nick;
-        }
-    })
-
-    return action.map(([state, uid]) => {
-        return `${userInfo[uid]}${stateMapping[state]}`;    
-    })
+    return answers.map(([answer, uid]) => `${userList[uid]}님이 ${joinMsg[answer]}.`);
 }
