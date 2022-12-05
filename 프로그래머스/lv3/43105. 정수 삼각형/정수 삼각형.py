@@ -1,5 +1,4 @@
 def solution(triangle):
-    answer = 0
     n = len(triangle)
     dp = [triangle[i] + [-1] * (n-i-1) for i in range(n)]
 
