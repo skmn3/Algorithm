@@ -55,5 +55,3 @@ class PriorityQueue {
     return this.items.length;
   }
 }
-
-console.log(solution([[0, 3], [1, 9], [2, 6]]));
